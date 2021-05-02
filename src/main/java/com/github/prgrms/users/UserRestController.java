@@ -18,7 +18,7 @@ import static com.github.prgrms.utils.ApiUtils.ApiResult;
 import static com.github.prgrms.utils.ApiUtils.success;
 
 @RestController
-@RequestMapping("api/users")
+@RequestMapping("/api/users")
 public class UserRestController {
 
     private final Jwt jwt;

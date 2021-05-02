@@ -6,20 +6,12 @@ spring:
     basename: i18n/messages
     encoding: UTF-8
     cache-duration: PT1H
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
   datasource:
-    platform: h2
-    driver-class-name: org.h2.Driver
-    url: "jdbc:h2:mem:spring_assignments;MODE=MYSQL;DB_CLOSE_DELAY=-1"
-    username: sa
-    password:
-    hikari:
-      minimum-idle: 1
-      maximum-pool-size: 5
-      pool-name: H2_DB
+    url: jdbc:mysql://localhost:3306/prgrms?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: tjlee
+    password: tjlee
+    driver-class-name: com.mysql.jdbc.Driver
+#    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
 server:
   port: 5000
 jwt:

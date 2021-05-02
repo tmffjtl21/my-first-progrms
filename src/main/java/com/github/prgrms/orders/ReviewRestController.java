@@ -1,10 +1,25 @@
 package com.github.prgrms.orders;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.github.prgrms.utils.ApiUtils;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
+
+import static com.github.prgrms.utils.ApiUtils.success;
 
 @RestController
 @RequestMapping("api/orders")
 public class ReviewRestController {
-    // TODO review 메소드 구현이 필요합니다.
+
+    private final OrdersService ordersService;
+
+    public ReviewRestController(OrdersService ordersService) {
+        this.ordersService = ordersService;
+    }
+
+    @PostMapping(path = "{id}/review")
+    public ApiUtils.ApiResult<ReviewDto> review(@PathVariable Long id, @RequestBody Map<String, String> content) {
+        return success(ordersService.review(id, content.get("content")));
+    }
+
 }
